@@ -1,0 +1,98 @@
+/**
+ * The OMNI Standard — Level 1 tokens (shared, identical in every product).
+ *
+ * Values are "R G B" triples (no rgb()/commas) so Tailwind's
+ * `rgb(var(--omni-x) / <alpha-value>)` pattern can vary opacity per utility
+ * (e.g. bg-omni-ink/60) without a separate token per alpha step.
+ *
+ * Three-state theme support, per The OMNI Standard's own artifact conventions:
+ *   - bare :root            → light values (default, and the fallback for
+ *                              viewers with no OS/explicit preference)
+ *   - prefers-color-scheme  → dark values, only when no explicit choice is set
+ *   - [data-theme="dark"]   → dark values, explicit choice always wins
+ * A product that stamps data-theme="light" on <html> deliberately gets no
+ * dark block at all, by design of this cascade.
+ */
+
+:root {
+  /* Neutrals */
+  --omni-bg: 250 250 248;              /* #FAFAF8 */
+  --omni-surface: 255 255 255;         /* #FFFFFF */
+  --omni-surface-sunk: 242 240 234;    /* #F2F0EA */
+  --omni-border: 229 226 216;          /* #E5E2D8 */
+  --omni-border-strong: 210 205 190;   /* #D2CDBE */
+  --omni-ink: 24 23 26;                /* #18171A */
+  --omni-ink-soft: 85 82 90;           /* #55525A */
+  --omni-ink-faint: 140 136 144;       /* #8C8890 */
+
+  /* Semantic — Level 3. Shared everywhere. Never repurposed as a product accent. */
+  --omni-success: 20 114 79;           /* #14724F */
+  --omni-success-soft: 231 243 237;    /* #E7F3ED */
+  --omni-warning: 147 101 11;          /* #93650B */
+  --omni-warning-soft: 251 241 221;    /* #FBF1DD */
+  --omni-error: 179 38 30;             /* #B3261E */
+  --omni-error-soft: 251 234 232;      /* #FBEAE8 */
+  --omni-info: 43 93 138;              /* #2B5D8A */
+  --omni-info-soft: 233 240 246;       /* #E9F0F6 */
+
+  /* Elevation — exactly two real levels plus none. Border carries "0". */
+  --omni-shadow-1: 0 1px 2px rgb(24 23 26 / 0.06);
+  --omni-shadow-2: 0 4px 16px rgb(24 23 26 / 0.10);
+
+  /* Radius */
+  --omni-radius-sm: 6px;   /* controls: buttons, inputs, badges (non-pill) */
+  --omni-radius-md: 10px;  /* containers: cards, panels, modals */
+  --omni-radius-pill: 9999px; /* status only */
+
+  /* Motion — one duration, one easing, everywhere. */
+  --omni-motion-duration: 120ms;
+  --omni-motion-ease: ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --omni-bg: 22 20 15;               /* #16140F */
+    --omni-surface: 29 27 21;          /* #1D1B15 */
+    --omni-surface-sunk: 38 35 25;     /* #262319 */
+    --omni-border: 53 49 31;           /* #35311F */
+    --omni-border-strong: 70 64 42;    /* #46402A */
+    --omni-ink: 241 238 228;           /* #F1EEE4 */
+    --omni-ink-soft: 194 188 172;      /* #C2BCAC */
+    --omni-ink-faint: 140 133 120;     /* #8C8578 */
+
+    --omni-success: 79 190 147;        /* #4FBE93 */
+    --omni-success-soft: 23 41 31;     /* #17291F */
+    --omni-warning: 224 176 79;        /* #E0B04F */
+    --omni-warning-soft: 44 36 18;     /* #2C2412 */
+    --omni-error: 227 143 135;         /* #E38F87 */
+    --omni-error-soft: 46 25 23;       /* #2E1917 */
+    --omni-info: 127 173 214;          /* #7FADD6 */
+    --omni-info-soft: 23 34 44;        /* #17222C */
+
+    --omni-shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+    --omni-shadow-2: 0 8px 24px rgb(0 0 0 / 0.5);
+  }
+}
+
+:root[data-theme="dark"] {
+  --omni-bg: 22 20 15;
+  --omni-surface: 29 27 21;
+  --omni-surface-sunk: 38 35 25;
+  --omni-border: 53 49 31;
+  --omni-border-strong: 70 64 42;
+  --omni-ink: 241 238 228;
+  --omni-ink-soft: 194 188 172;
+  --omni-ink-faint: 140 133 120;
+
+  --omni-success: 79 190 147;
+  --omni-success-soft: 23 41 31;
+  --omni-warning: 224 176 79;
+  --omni-warning-soft: 44 36 18;
+  --omni-error: 227 143 135;
+  --omni-error-soft: 46 25 23;
+  --omni-info: 127 173 214;
+  --omni-info-soft: 23 34 44;
+
+  --omni-shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --omni-shadow-2: 0 8px 24px rgb(0 0 0 / 0.5);
+}

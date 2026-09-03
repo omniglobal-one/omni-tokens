@@ -1,0 +1,54 @@
+/**
+ * The OMNI Standard — self-hosted type.
+ *
+ * Latin-only subset woff2 files, pulled directly from Google's own CSS2
+ * endpoint (the /* latin *\/ block, not latin-ext/cyrillic/vietnamese/etc.).
+ * IBM Plex Sans ships as a single variable file covering 400–700 — Google
+ * serves the identical physical file for all four static weight requests,
+ * so this package stores it once and declares one @font-face with a weight
+ * range, rather than four duplicate ~46KB files.
+ *
+ * Each consuming product copies /fonts/*.woff2 into its own public/fonts/
+ * directory (see README) and imports this file once, e.g. in app/layout.tsx.
+ * `font-display: swap` throughout — no invisible-text wait on first paint.
+ */
+
+@font-face {
+  font-family: 'Familjen Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/familjengrotesk-600-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400 700; /* variable file — one instance covers the whole range */
+  font-display: swap;
+  src: url('/fonts/ibmplexsans-variable-latin.woff2') format('woff2-variations'), url('/fonts/ibmplexsans-variable-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/ibmplexmono-400-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/ibmplexmono-500-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/ibmplexmono-600-latin.woff2') format('woff2');
+}
