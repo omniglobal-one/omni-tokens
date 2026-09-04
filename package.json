@@ -1,14 +1,18 @@
 {
   "name": "@omni/tokens",
-  "version": "1.0.1",
-  "description": "The OMNI Standard, Level 1 — shared design tokens: neutrals, semantic colors, type scale, spacing/radius/elevation rules, self-hosted fonts, and the six-token product-accent pattern. Every OMNI product repo consumes this package; none of them fork it.",
+  "version": "1.1.0",
+  "description": "The OMNI Standard, Level 1 — shared design tokens: neutrals, semantic colors, type scale, spacing/radius/elevation rules, self-hosted fonts, the six-token product-accent pattern, and a drift-prevention check. Every OMNI product repo consumes this package; none of them fork it.",
   "license": "UNLICENSED",
   "private": true,
   "main": "src/index.js",
   "types": "src/index.d.ts",
+  "bin": {
+    "omni-check-drift": "bin/check-drift.js"
+  },
   "files": [
     "src",
     "fonts",
+    "bin",
     "README.md"
   ],
   "exports": {

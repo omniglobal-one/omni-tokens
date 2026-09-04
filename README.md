@@ -130,6 +130,37 @@ out of sync with each other over time.
 | Talent | `#5B21B6` | Unchanged |
 | Vendor | `#86198F` | Unchanged |
 
+## Drift prevention (Step 7)
+
+Once a product is migrated, the failure mode isn't "no tokens" — it's a
+future PR reaching for `bg-blue-600` or `text-[#1E40AF]` instead of
+`bg-accent`, because it's faster and nobody's watching. `bin/check-drift.js`
+catches exactly those two things — Tailwind's own default color palette, and
+any raw hex literal — across `app/`, `components/`, and `lib/`:
+
+```jsonc
+// package.json, in each product repo
+"scripts": {
+  "lint:drift": "omni-check-drift"
+}
+```
+
+```bash
+npm run lint:drift
+# omni-check-drift: clean — 214 files checked, 0 violations.
+```
+
+Wire it into CI (or a pre-push hook) so it actually gates something, not just
+something to run by hand occasionally. A line with a deliberate, reviewed
+exception (a `<canvas>` pixel op, a third-party color the product doesn't
+control) can end with `// omni-drift-ignore` to skip it.
+
+This is a plain Node script, not a custom ESLint rule — it ships today with
+no eslint-plugin scaffolding, and still fails a build the same way a lint
+error would. A real ESLint rule (inline editor squiggles, autofix) is the
+natural next step once this pattern has proven itself across a few products,
+not a reason to have held Step 7 back until then.
+
 ## What's deliberately NOT in this package
 
 - **Components.** Buttons, inputs, tables, etc. are Step 3 (`@omni/ui`), built
