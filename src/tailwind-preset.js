@@ -126,6 +126,19 @@ module.exports = {
       transitionTimingFunction: {
         DEFAULT: 'ease',
       },
+      // Guest-page entrance motion (Level "guest" — see GuestHero in
+      // @omni/ui). One shared keyframe so all eight products' hero moments
+      // animate identically instead of each hand-rolling its own timing.
+      // Dashboards don't use this — restraint stays the rule there.
+      keyframes: {
+        'omni-fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'omni-fade-up': 'omni-fade-up 500ms cubic-bezier(0.16, 1, 0.3, 1) both',
+      },
     },
   },
 };
