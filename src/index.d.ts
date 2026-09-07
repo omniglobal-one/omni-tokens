@@ -25,6 +25,7 @@ export const PRODUCTS: {
   queue: string;
   rewards: string;
   share: string;
+  social: string;
   sports: string;
   talent: string;
   vendor: string;

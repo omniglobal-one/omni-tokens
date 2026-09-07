@@ -1,6 +1,6 @@
 {
   "name": "@omni/tokens",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "The OMNI Standard, Level 1 — shared design tokens: neutrals, semantic colors, type scale, spacing/radius/elevation rules, self-hosted fonts, the six-token product-accent pattern, and a drift-prevention check. Every OMNI product repo consumes this package; none of them fork it.",
   "license": "UNLICENSED",
   "private": true,

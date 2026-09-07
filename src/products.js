@@ -16,6 +16,7 @@ module.exports = {
   queue: '#4D7C0F',
   rewards: '#9C6B0A',
   share: '#0C6B9E',
+  social: '#C21E56',
   sports: '#B8380A',
   talent: '#5B21B6',
   vendor: '#86198F',
