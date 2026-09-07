@@ -20,6 +20,7 @@ export function buildProductAccentTokens(baseHex: string): ProductAccentTokens;
 export function accentTokensToCssVars(baseHex: string, selector?: string): string;
 
 export const PRODUCTS: {
+  booking: string;
   care: string;
   pay: string;
   queue: string;

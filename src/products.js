@@ -11,6 +11,7 @@
  * app just needs to call buildProductAccentTokens(PRODUCTS.care) once.
  */
 module.exports = {
+  booking: '#B45309',
   care: '#0B7A3E',
   pay: '#1E40AF',
   queue: '#4D7C0F',
